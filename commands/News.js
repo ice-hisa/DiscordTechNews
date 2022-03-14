@@ -141,32 +141,15 @@ module.exports = {
         var addescrip = ["レンタルサーバー「ロリポップ！」月額220円からWordPressが使え、ワンクリック60秒で簡単インストール！", "GitHubはこちら", "こちらのBot作成に協力してくださった方はこちらです。"]
         var adlink = ["https://px.a8.net/svt/ejp?a8mat=3BSOG1+F8XOJ6+348+61RIB", "https://github.com/ice-hisa/DiscordTechNews", "https://note.com/ice_hisame/n/nfbd4f998bc4d"]
 
-        let embed = new Discord.MessageEmbed()
+        var embed = new Discord.MessageEmbed()
             .setTitle(`${feed.title}`)
             .setURL(`${feed.link}`)
             .setDescription(`${feed.description}`)
-            .addField('\u200B','\u200B')
-            .addField( `${title[0]}`, `[${descrip[0]}](${feed.items[0].link})\n`,true )
-            .addField( `${title[1]}`, `[${descrip[1]}](${feed.items[1].link})\n`,true )
-            .addField( `${title[2]}`, `[${descrip[2]}](${feed.items[2].link})\n`,true )
-            .addField( `${title[3]}`, `[${descrip[3]}](${feed.items[3].link})\n`,true )
-            .addField( `${title[4]}`, `[${descrip[4]}](${feed.items[4].link})\n`,true )
-            .addField( `${title[5]}`, `[${descrip[5]}](${feed.items[5].link})\n`,true )
-            .addField( `${title[6]}`, `[${descrip[6]}](${feed.items[6].link})\n`,true )
-            .addField( `${title[7]}`, `[${descrip[7]}](${feed.items[7].link})\n`,true )
-            .addField( `${title[8]}`, `[${descrip[8]}](${feed.items[8].link})\n`,true )
-            .addField( `${title[9]}`, `[${descrip[9]}](${feed.items[9].link})\n`,true )
-            .addField( `${title[10]}`, `[${descrip[10]}](${feed.items[10].link})\n`,true )
-            .addField( `${title[11]}`, `[${descrip[11]}](${feed.items[11].link})\n`,true )
-            .addField( `${title[12]}`, `[${descrip[12]}](${feed.items[12].link})\n`,true )
-            .addField( `${title[13]}`, `[${descrip[13]}](${feed.items[13].link})\n`,true )
-            .addField( `${title[14]}`, `[${descrip[14]}](${feed.items[14].link})\n`,true )
-            .addField( `${title[15]}`, `[${descrip[15]}](${feed.items[15].link})\n`,true )
-            .addField( `${title[16]}`, `[${descrip[16]}](${feed.items[16].link})\n`,true )
-            .addField( `${title[17]}`, `[${descrip[17]}](${feed.items[17].link})\n`,true )
-            .addField( `${title[18]}`, `[${descrip[18]}](${feed.items[18].link})\n`,true )
-            .addField( `${title[19]}`, `[${descrip[19]}](${feed.items[19].link})\n`,true )
-            .addField( `${adTitle[i]}`, `[${addescrip[i]}](${adlink[i]})`,true )
+            .addField('\u200B','\u200B');
+        for ( var i = 0; i < feed.items.length; i++ ){
+            embed = embed.addField( `${title[i]}`, `[${descrip[i]}](${feed.items[i].link})\n`,true );
+        }
+        embed = embed.addField( `${adTitle[i]}`, `[${addescrip[i]}](${adlink[i]})`,true );
         await interaction.reply({ embeds: [embed] });
 	}
 }
