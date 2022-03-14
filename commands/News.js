@@ -146,8 +146,8 @@ module.exports = {
             .setURL(`${feed.link}`)
             .setDescription(`${feed.description}`)
             .addField('\u200B','\u200B');
-        for ( var i = 0; i < feed.items.length; i++ ){
-            embed = embed.addField( `${title[i]}`, `[${descrip[i]}](${feed.items[i].link})\n`,true );
+        for ( var x = 0; x < feed.items.length; x++ ){
+            embed = embed.addField( `${title[x]}`, `[${descrip[x]}](${feed.items[x].link})\n`,true );
         }
         embed = embed.addField( `${adTitle[i]}`, `[${addescrip[i]}](${adlink[i]})`,true );
         await interaction.reply({ embeds: [embed] });
